@@ -1,0 +1,760 @@
+<!DOCTYPE html>
+<!-- saved from url=(0063)file:///Users/oliverlilholt/Downloads/moxso-paid_preread_2.html -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Marketing Pre-Read · Moxso</title>
+<link rel="preconnect" href="https://fonts.googleapis.com/">
+<link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="">
+<link href="./Index_files/css2" rel="stylesheet">
+<style>
+
+/* ── Tokens (Elegant + Bento) ───────────────────────────────────────────── */
+:root {
+  --primary:    #3B82F6;
+  --primary-d:  #2563EB;
+  --primary-l:  #EFF6FF;
+  --secondary:  #8B5CF6;
+  --bento-warm: #FAD4C0;
+  --bento-cool: #80A1C1;
+  --surface-warm: #FFF5E6;
+  --success:    #16A34A;
+  --warning:    #D97706;
+  --danger:     #DC2626;
+  --surface:    #FFFFFF;
+  --bg:         #F9FAFB;
+  --text:       #111827;
+  --text-mid:   #374151;
+  --text-soft:  #6B7280;
+  --border:     #E5E7EB;
+  --border-l:   #F3F4F6;
+
+  /* Spacing scale: 4/8/12/16/24/32 */
+  --s1: 4px;  --s2: 8px;  --s3: 12px;
+  --s4: 16px; --s5: 24px; --s6: 32px;
+
+  --r-sm: 6px; --r-md: 10px; --r-lg: 14px; --r-xl: 18px;
+  --shadow-sm: 0 1px 2px rgba(0,0,0,0.05);
+  --shadow:    0 1px 3px rgba(0,0,0,0.07), 0 4px 12px rgba(0,0,0,0.05);
+  --shadow-lg: 0 2px 8px rgba(0,0,0,0.08), 0 8px 24px rgba(0,0,0,0.07);
+
+  --font: 'Google Sans', system-ui, -apple-system, sans-serif;
+  --mono: 'Anonymous Pro', monospace;
+}
+
+/* ── Reset ──────────────────────────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: var(--font);
+  background: var(--bg);
+  color: var(--text);
+  -webkit-font-smoothing: antialiased;
+  line-height: 1.6;
+}
+
+/* ── Hero ───────────────────────────────────────────────────────────────── */
+.hero {
+  background: var(--text);
+  padding: 0 var(--s5);
+}
+.hero-inner {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 60px 0 52px;
+}
+.hero-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--s2);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 100px;
+  padding: 4px 12px;
+  font-size: 11px;
+  font-weight: 500;
+  color: rgba(255,255,255,0.45);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  margin-bottom: var(--s5);
+}
+.hero-pill-dot {
+  width: 5px; height: 5px;
+  border-radius: 50%;
+  background: var(--primary);
+}
+.hero-title {
+  font-size: clamp(32px, 5vw, 50px);
+  font-weight: 300;
+  color: #fff;
+  line-height: 1.16;
+  letter-spacing: -0.02em;
+  margin-bottom: var(--s4);
+  max-width: 600px;
+}
+.hero-title strong {
+  font-weight: 500;
+  color: var(--bento-warm);
+}
+.hero-sub {
+  font-size: 17px;
+  font-weight: 300;
+  color: rgba(255,255,255,0.4);
+  max-width: 460px;
+  line-height: 1.7;
+  margin-bottom: var(--s6);
+}
+.hero-meta {
+  display: flex;
+  gap: var(--s2);
+  flex-wrap: wrap;
+}
+.meta-chip {
+  font-size: 12px;
+  font-weight: 400;
+  color: rgba(255,255,255,0.3);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 100px;
+  padding: 4px 12px;
+}
+
+/* ── Nav ────────────────────────────────────────────────────────────────── */
+.nav {
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  padding: 0 var(--s5);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: var(--shadow-sm);
+}
+.nav-inner {
+  max-width: 960px;
+  margin: 0 auto;
+  display: flex;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+.nav-inner::-webkit-scrollbar { display: none; }
+.nav-link {
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--text-soft);
+  text-decoration: none;
+  padding: 13px 16px 11px;
+  white-space: nowrap;
+  border-bottom: 2px solid transparent;
+  transition: color 0.15s, border-color 0.15s;
+}
+.nav-link:hover { color: var(--text); }
+.nav-link.active { color: var(--primary); border-bottom-color: var(--primary); font-weight: 500; }
+
+/* ── Page ───────────────────────────────────────────────────────────────── */
+.page {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0 var(--s5) 120px;
+}
+
+/* ── Section ────────────────────────────────────────────────────────────── */
+.section {
+  padding-top: 64px;
+  opacity: 0;
+  transform: translateY(14px);
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+.section.visible { opacity: 1; transform: translateY(0); }
+
+.eyebrow {
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--primary);
+  margin-bottom: var(--s2);
+}
+.section-title {
+  font-size: clamp(20px, 2.8vw, 26px);
+  font-weight: 400;
+  color: var(--text);
+  letter-spacing: -0.015em;
+  line-height: 1.3;
+  margin-bottom: var(--s4);
+  max-width: 520px;
+}
+.body {
+  font-size: 17px;
+  font-weight: 300;
+  color: var(--text-mid);
+  line-height: 1.75;
+  margin-bottom: var(--s4);
+  max-width: 620px;
+}
+
+/* ── Bento grid ─────────────────────────────────────────────────────────── */
+.bento {
+  display: grid;
+  gap: var(--s2);
+  margin: var(--s5) 0;
+}
+.bento-4 { grid-template-columns: repeat(4, 1fr); }
+.bento-2 { grid-template-columns: 1fr 1fr; }
+.bento-3 { grid-template-columns: 2fr 1fr; }
+@media (max-width: 640px) {
+  .bento-4 { grid-template-columns: repeat(2, 1fr); }
+  .bento-2, .bento-3 { grid-template-columns: 1fr; }
+}
+
+/* ── Card base ──────────────────────────────────────────────────────────── */
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg);
+  padding: var(--s5);
+  transition: box-shadow 0.18s, border-color 0.18s;
+}
+.card:hover { box-shadow: var(--shadow); border-color: #D1D5DB; }
+
+/* Stat card */
+.card-stat {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg);
+  padding: var(--s5) var(--s4);
+  text-align: center;
+  transition: box-shadow 0.18s;
+}
+.card-stat:hover { box-shadow: var(--shadow); }
+.stat-n {
+  font-size: 42px;
+  font-weight: 200;
+  color: var(--text);
+  letter-spacing: -0.03em;
+  line-height: 1;
+  margin-bottom: var(--s2);
+}
+.stat-n em { font-style: normal; color: var(--primary); }
+.stat-l {
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--text-soft);
+  line-height: 1.45;
+}
+
+/* Blue accent card */
+.card-blue {
+  border-left: 3px solid var(--primary);
+  border-color: var(--border);
+  border-left-color: var(--primary);
+  background: var(--primary-l);
+}
+.card-blue .clabel {
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--primary);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: var(--s3);
+}
+.card-blue p {
+  font-size: 17px;
+  font-weight: 300;
+  color: var(--text-mid);
+  line-height: 1.72;
+  margin-bottom: var(--s3);
+}
+.card-blue p:last-child { margin-bottom: 0; }
+.cnote {
+  font-size: 14px;
+  font-style: italic;
+  color: var(--text-soft);
+  padding-top: var(--s3);
+  border-top: 1px solid var(--border);
+  margin-top: var(--s3);
+  line-height: 1.6;
+}
+
+/* Dark card */
+.card-dark {
+  background: var(--text);
+  border-color: transparent;
+}
+.card-dark:hover { box-shadow: var(--shadow-lg); }
+.card-dark .clabel {
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--bento-warm);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: var(--s3);
+}
+.card-dark p {
+  font-size: 17px;
+  font-weight: 300;
+  color: rgba(255,255,255,0.55);
+  line-height: 1.72;
+  margin-bottom: var(--s3);
+}
+.card-dark p:last-child { margin-bottom: 0; }
+.card-dark .cnote {
+  border-top-color: rgba(255,255,255,0.08);
+  color: rgba(255,255,255,0.3);
+}
+
+/* Warm card */
+.card-warm {
+  background: var(--surface-warm);
+  border-color: #F5D0B0;
+}
+.big-statement {
+  font-size: clamp(18px, 2vw, 21px);
+  font-weight: 300;
+  color: var(--text);
+  line-height: 1.6;
+  letter-spacing: -0.01em;
+}
+.big-statement strong { font-weight: 500; color: var(--text); }
+
+/* Metric mini-card */
+.card-metric { padding: var(--s5); }
+.metric-src {
+  display: inline-block;
+  font-family: var(--mono);
+  font-size: 10px;
+  color: var(--primary);
+  background: var(--primary-l);
+  border: 1px solid #BFDBFE;
+  border-radius: var(--r-sm);
+  padding: 2px 7px;
+  margin-bottom: var(--s3);
+}
+.metric-n {
+  font-size: 38px;
+  font-weight: 200;
+  color: var(--text);
+  letter-spacing: -0.03em;
+  line-height: 1;
+  margin-bottom: var(--s2);
+}
+.metric-n em { font-style: normal; color: var(--primary); }
+.metric-l {
+  font-size: 15px;
+  font-weight: 300;
+  color: var(--text-soft);
+  line-height: 1.45;
+}
+.metric-divider { height: 1px; background: var(--border-l); margin: var(--s4) 0; }
+
+/* Comparison card */
+.compare-block { display: flex; flex-direction: column; gap: var(--s4); height: 100%; }
+.compare-row { padding-bottom: var(--s4); border-bottom: 1px solid var(--border-l); }
+.compare-row:last-child { border-bottom: none; padding-bottom: 0; }
+.compare-tag {
+  font-size: 10px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: var(--s2);
+}
+.compare-tag.old { color: var(--text-soft); }
+.compare-tag.new { color: var(--primary); }
+.compare-text {
+  font-size: 16px;
+  font-weight: 300;
+  color: var(--text-mid);
+  line-height: 1.6;
+}
+.compare-text.new-text { font-weight: 400; color: var(--text); }
+.compare-footer {
+  margin-top: auto;
+  padding-top: var(--s3);
+  border-top: 1px solid var(--border-l);
+  font-size: 14px;
+  font-weight: 300;
+  color: var(--text-soft);
+  line-height: 1.5;
+}
+
+/* ── Table ──────────────────────────────────────────────────────────────── */
+.table-wrap {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg);
+  overflow: hidden;
+  margin: var(--s5) 0;
+  box-shadow: var(--shadow-sm);
+}
+table { width: 100%; border-collapse: collapse; }
+thead tr { background: var(--text); }
+thead th {
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.4);
+  padding: 12px 20px;
+  text-align: left;
+}
+thead th:first-child { width: 28%; }
+tbody tr {
+  border-bottom: 1px solid var(--border-l);
+  transition: background 0.12s;
+}
+tbody tr:last-child { border-bottom: none; }
+tbody tr:hover { background: var(--bg); }
+tbody td { padding: 15px 20px; vertical-align: top; }
+tbody td:first-child {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--primary);
+  line-height: 1.6;
+  padding-top: 16px;
+}
+tbody td:last-child {
+  font-size: 16px;
+  font-weight: 300;
+  color: var(--text-mid);
+  line-height: 1.68;
+}
+
+/* ── Bullet cards ───────────────────────────────────────────────────────── */
+.bullet-stack {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s2);
+  margin: var(--s5) 0;
+}
+.bullet-card {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--s4);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--r-md);
+  padding: var(--s4) var(--s5);
+  transition: box-shadow 0.15s, border-color 0.15s;
+}
+.bullet-card:hover { box-shadow: var(--shadow); border-color: #D1D5DB; }
+.bnum {
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 400;
+  color: var(--primary);
+  background: var(--primary-l);
+  border: 1px solid #BFDBFE;
+  border-radius: var(--r-sm);
+  padding: 2px 8px;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+.bullet-card p {
+  font-size: 17px;
+  font-weight: 300;
+  color: var(--text-mid);
+  line-height: 1.65;
+}
+
+/* ── Divider ────────────────────────────────────────────────────────────── */
+.divider { height: 1px; background: var(--border); margin: 64px 0 0; }
+
+/* ── Closing ────────────────────────────────────────────────────────────── */
+.closing {
+  padding-top: 64px;
+  opacity: 0;
+  transform: translateY(14px);
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+.closing.visible { opacity: 1; transform: translateY(0); }
+.closing-grid {
+  display: grid;
+  grid-template-columns: 1fr 200px;
+  gap: var(--s2);
+}
+@media (max-width: 580px) { .closing-grid { grid-template-columns: 1fr; } }
+.closing-body {
+  background: var(--text);
+  border-radius: var(--r-lg);
+  padding: var(--s6);
+}
+.closing-body p {
+  font-size: clamp(17px, 2vw, 20px);
+  font-weight: 300;
+  color: rgba(255,255,255,0.6);
+  line-height: 1.72;
+  letter-spacing: -0.005em;
+}
+.closing-cta {
+  background: var(--primary);
+  border-radius: var(--r-lg);
+  padding: var(--s5);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+.closing-cta-text {
+  font-size: 20px;
+  font-weight: 500;
+  color: #fff;
+  line-height: 1.3;
+  letter-spacing: -0.01em;
+}
+.closing-cta-sub {
+  font-size: 12px;
+  font-weight: 400;
+  color: rgba(255,255,255,0.5);
+  margin-top: 6px;
+}
+
+</style>
+</head>
+<body>
+
+<!-- Hero -->
+<div class="hero">
+  <div class="hero-inner">
+    <div class="hero-pill"><span class="hero-pill-dot"></span>Moxso · Marketing Pre-Read</div>
+    <h1 class="hero-title">Marketing is not<br>a cost centre.<br><strong>It's how deals happen.</strong></h1>
+    <p class="hero-sub">Sets the frame for Thursday's session — where we show, in our own data, what the past months of investment have actually produced.</p>
+    <div class="hero-meta">
+      <span class="meta-chip">CEO &amp; Head of Finance Session</span>
+      <span class="meta-chip">March 2026</span>
+      <span class="meta-chip">Confidential</span>
+    </div>
+  </div>
+</div>
+
+<!-- Nav -->
+<nav class="nav">
+  <div class="nav-inner">
+    <a class="nav-link active" href="file:///Users/oliverlilholt/Downloads/moxso-paid_preread_2.html#s1">The question</a>
+    <a class="nav-link" href="file:///Users/oliverlilholt/Downloads/moxso-paid_preread_2.html#s2">How buying works</a>
+    <a class="nav-link" href="file:///Users/oliverlilholt/Downloads/moxso-paid_preread_2.html#s3">Why LinkedIn</a>
+    <a class="nav-link" href="file:///Users/oliverlilholt/Downloads/moxso-paid_preread_2.html#s4">What we're building</a>
+    <a class="nav-link" href="file:///Users/oliverlilholt/Downloads/moxso-paid_preread_2.html#s5">Thursday</a>
+  </div>
+</nav>
+
+<div class="page">
+
+  <!-- 01 -->
+  <div class="section visible" id="s1">
+    <div class="eyebrow">01 · The starting point</div>
+    <h2 class="section-title">The question we're anticipating.</h2>
+    <p class="body">170.000 DKK a month in LinkedIn ads. A four-person team. Where's the direct line to revenue? It's a fair question. This isn't a defence — it's an argument that it's the wrong question, and that asking the right one changes everything.</p>
+
+    <div class="bento bento-2">
+      <div class="card card-blue">
+        <div class="clabel">The measurement problem</div>
+        <p>B2B deals don't follow monthly reporting cycles. They take shape over months, across multiple stakeholders, long before sales is involved. Measuring marketing in 30-day windows misses most of what creates a deal — and credits whatever was visible at the finish line.</p>
+        <div class="cnote">Not a Moxso position. What the data shows across millions of B2B customer journeys.</div>
+      </div>
+      <div class="card card-warm">
+        <p class="big-statement">The question isn't <strong>"what did we get from LinkedIn this month?"</strong><br><br>It's <strong>"what did last year's work build for this quarter?"</strong></p>
+      </div>
+    </div>
+  </div>
+
+  <!-- 02 -->
+  <div class="section visible" id="s2">
+    <div class="eyebrow">02 · How the buying journey actually works</div>
+    <h2 class="section-title">Buyers decide before they talk to sales.</h2>
+    <p class="body">Dreamdata analysed 3.5 million B2B customer journeys in 2026. The pattern is consistent across industries and company sizes:</p>
+
+    <div class="bento bento-4">
+      <div class="card-stat">
+        <div class="stat-n">272</div>
+        <div class="stat-l">days avg. from first touch to closed deal</div>
+      </div>
+      <div class="card-stat">
+        <div class="stat-n"><em>81</em>%</div>
+        <div class="stat-l">of that journey happens before the sales pipeline</div>
+      </div>
+      <div class="card-stat">
+        <div class="stat-n">10</div>
+        <div class="stat-l">avg. stakeholders involved per deal</div>
+      </div>
+      <div class="card-stat">
+        <div class="stat-n">88</div>
+        <div class="stat-l">avg. touchpoints before a deal closes</div>
+      </div>
+    </div>
+
+    <p class="body">By the time a CISO books a demo, they have already formed a view — shaped by content they read, peers they spoke to, and brands they kept encountering. The sales conversation is not where the decision begins. It is where it finishes.</p>
+
+    <div class="bento bento-3">
+      <div class="card card-dark">
+        <div class="clabel">The practical consequence</div>
+        <p>A CISO who has seen Moxso in their LinkedIn feed for six months responds to outreach differently than one who has never heard of us. Same message, different conversion rate. The difference is not the sales motion — it is what happened upstream.</p>
+        <div class="cnote">That upstream work doesn't appear in this month's pipeline. It appears in win rates, deal velocity, and the quality of conversations sales is having.</div>
+      </div>
+      <div class="card card-metric">
+        <div class="metric-src">Dreamdata 2026</div>
+        <div class="metric-n"><em>81</em>%</div>
+        <div class="metric-l">of the buying decision is made before sales is ever involved</div>
+        <div class="metric-divider"></div>
+        <div class="metric-n" style="font-size:30px;">19%</div>
+        <div class="metric-l">is where sales operates</div>
+      </div>
+    </div>
+
+    <div class="bento bento-2" style="margin-top: var(--s2);">
+      <div class="card card-warm">
+        <p class="big-statement">Most B2B buyers don't choose the best product.<br><br>They choose the one they've <strong>seen the most.</strong></p>
+      </div>
+      <div class="card card-blue">
+        <div class="clabel">The structural problem most companies miss</div>
+        <p>Familiarity doesn't happen by accident. It requires systematic, sustained presence at the account level — over months, not campaigns. Most companies can't do this because their entire go-to-market is wired for demand capture: search ads, retargeting, SDR sequences. Infrastructure built to harvest intent, not build it.</p>
+        <div class="cnote">When outbound fails, the instinct is to fix the sequence. The real fix is upstream — building the familiarity that makes outbound land.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 03 -->
+  <div class="section" id="s3">
+    <div class="eyebrow">03 · Why LinkedIn specifically</div>
+    <h2 class="section-title">Not where we hope buyers find us. Where they actually are.</h2>
+    <p class="body">The case for LinkedIn isn't strategic preference — it's where independent data from multiple sources consistently points.</p>
+
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Source</th><th>Finding</th></tr></thead>
+        <tbody>
+          <tr>
+            <td>Dreamdata 2026<br>3.5M journeys</td>
+            <td>LinkedIn delivers 121% ROAS — the only major ad platform with positive return for B2B. Google Search ROAS is 67% and declining year-on-year.</td>
+          </tr>
+          <tr>
+            <td>Dreamdata 2026</td>
+            <td>Cost per company influenced: €70 — down 54% year-on-year. Per-click cost looks high; per-company cost is the most efficient in the benchmark set.</td>
+          </tr>
+          <tr>
+            <td>Semrush 2026<br>89K LinkedIn URLs</td>
+            <td>LinkedIn is the #2 most-cited domain across ChatGPT, Google AI Mode, and Perplexity. When buyers ask AI about our category, the answers are built from LinkedIn content.</td>
+          </tr>
+          <tr>
+            <td>Dreamdata 2026</td>
+            <td>LinkedIn Ads account for 30% of sessions at SQL stage and 28% at New Business. Influence grows as deals progress — not disappears.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="bento bento-3">
+      <div class="card card-blue">
+        <div class="clabel">The AI search angle</div>
+        <p>When a buyer asks ChatGPT "how do companies manage human risk?" — the answer is assembled from whoever has published most consistently on that topic. That's a durable positioning asset. But only for whoever moves first.</p>
+        <div class="cnote">The window is open now. It won't stay that way.</div>
+      </div>
+      <div class="card card-metric">
+        <div class="metric-src">Semrush 2026</div>
+        <div class="metric-n"><em>#2</em></div>
+        <div class="metric-l">most-cited domain in AI search responses</div>
+        <div class="metric-divider"></div>
+        <div class="metric-n" style="font-size:28px;"><em>11</em>%</div>
+        <div class="metric-l">of all AI responses cite LinkedIn content</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 04 -->
+  <div class="section" id="s4">
+    <div class="eyebrow">04 · What we are actually building</div>
+    <h2 class="section-title">Not a lead generation programme. A category ownership position.</h2>
+    <p class="body">Security awareness training is a crowded, commoditised market. Competing on feature terms is a race to the bottom that incumbents with ten-year head starts will win. Moxso's position is different.</p>
+
+    <div class="bento bento-2">
+      <div class="card card-dark">
+        <div class="clabel">How category creation compounds</div>
+        <p>CrowdStrike defined endpoint detection. Snyk defined developer security. Wiz defined cloud security posture. The company that published the category framework first became the reference point every buyer started from.</p>
+        <div class="cnote">Our marketing investment is category infrastructure spend. Done consistently, it compounds into a structural advantage that is genuinely hard to replicate.</div>
+      </div>
+      <div class="card" style="display:flex;flex-direction:column;">
+        <div class="compare-block">
+          <div class="compare-row">
+            <div class="compare-tag old">Old frame</div>
+            <div class="compare-text">Security awareness training. Compete on completion rates, phishing simulations, content quality.</div>
+          </div>
+          <div class="compare-row">
+            <div class="compare-tag new">Moxso's frame</div>
+            <div class="compare-text new-text">Human Risk Intelligence. A continuous system that makes SAT look like it was solving for the wrong thing.</div>
+          </div>
+          <div class="compare-footer">The window to own this category is approximately 18 months before competitors understand what is happening.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 05 -->
+  <div class="section" id="s5">
+    <div class="eyebrow">05 · Thursday's session</div>
+    <h2 class="section-title">Where the framework meets our own numbers.</h2>
+    <p class="body">Thursday is not a theoretical presentation. Using Fibbler, Weld, and HubSpot, we will walk through actual Moxso customer journeys — from first LinkedIn impression to closed deal.</p>
+
+    <div class="bullet-stack">
+      <div class="bullet-card">
+        <span class="bnum">01</span>
+        <p>Which accounts in our ICP are currently warming — companies that have seen our content, engaged, and are showing early intent signals</p>
+      </div>
+      <div class="bullet-card">
+        <span class="bnum">02</span>
+        <p>The touchpoint timeline before deals opened — how many impressions, what content, over what period — before a single sales conversation took place</p>
+      </div>
+      <div class="bullet-card">
+        <span class="bnum">03</span>
+        <p>Influenced revenue — the deals where we can trace meaningful LinkedIn exposure in the journey before closing</p>
+      </div>
+      <div class="bullet-card">
+        <span class="bnum">04</span>
+        <p>The attribution gap — what last-click reporting credits vs. what the full account journey actually shows</p>
+      </div>
+    </div>
+
+    <div class="bento bento-2">
+      <div class="card card-blue">
+        <div class="clabel">What we are asking for</div>
+        <p>A shared framework for evaluating marketing that reflects how B2B buying actually works — and clarity on what good evidence looks like when the cycle runs nine months.</p>
+        <div class="cnote">Thursday is the start of that conversation. The data will carry it.</div>
+      </div>
+      <div class="card card-warm">
+        <p class="big-statement">We are not presenting a direct CAC payback model. That framing doesn't fit a <strong>272-day buying cycle</strong>, and we won't pretend otherwise.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Closing -->
+  <div class="divider"></div>
+  <div class="closing" id="closing">
+    <div class="closing-grid">
+      <div class="closing-body">
+        <p>The pipeline closing today was planted 6–12 months ago. The pipeline closing in Q3 and Q4 is being planted now. Marketing spend is not a current-quarter expense — it is a future-quarter investment. The question is not whether we can afford to keep going. It is whether we can afford to stop.</p>
+      </div>
+      <div class="closing-cta">
+        <div class="closing-cta-text">See you<br>Thursday.</div>
+        <div class="closing-cta-sub">Moxso Marketing</div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<script>
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.06, rootMargin: '0px 0px -24px 0px' });
+  document.querySelectorAll('.section, .closing').forEach(el => io.observe(el));
+
+  const links = document.querySelectorAll('.nav-link');
+  const secs = document.querySelectorAll('.section[id]');
+  const nio = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        links.forEach(l => l.classList.remove('active'));
+        const a = document.querySelector(`.nav-link[href="#${e.target.id}"]`);
+        if (a) a.classList.add('active');
+      }
+    });
+  }, { threshold: 0.35 });
+  secs.forEach(s => nio.observe(s));
+</script>
+
+
+</body></html>
