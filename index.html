@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<!-- saved from url=(0063)file:///Users/oliverlilholt/Downloads/moxso-paid_preread_2.html -->
-<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-
+<html lang="en">
+<head>
+<meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Marketing Pre-Read · Moxso</title>
-<link rel="preconnect" href="https://fonts.googleapis.com/">
-<link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="">
-<link href="./Index_files/css2" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@100;200;300;400;500;600&family=Anonymous+Pro:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
 <style>
 
 /* ── Tokens (Elegant + Bento) ───────────────────────────────────────────── */
@@ -525,18 +525,18 @@ tbody td:last-child {
 <!-- Nav -->
 <nav class="nav">
   <div class="nav-inner">
-    <a class="nav-link active" href="file:///Users/oliverlilholt/Downloads/moxso-paid_preread_2.html#s1">The question</a>
-    <a class="nav-link" href="file:///Users/oliverlilholt/Downloads/moxso-paid_preread_2.html#s2">How buying works</a>
-    <a class="nav-link" href="file:///Users/oliverlilholt/Downloads/moxso-paid_preread_2.html#s3">Why LinkedIn</a>
-    <a class="nav-link" href="file:///Users/oliverlilholt/Downloads/moxso-paid_preread_2.html#s4">What we're building</a>
-    <a class="nav-link" href="file:///Users/oliverlilholt/Downloads/moxso-paid_preread_2.html#s5">Thursday</a>
+    <a class="nav-link" href="#s1">The question</a>
+    <a class="nav-link" href="#s2">How buying works</a>
+    <a class="nav-link" href="#s3">Why LinkedIn</a>
+    <a class="nav-link" href="#s4">What we're building</a>
+    <a class="nav-link" href="#s5">Thursday</a>
   </div>
 </nav>
 
 <div class="page">
 
   <!-- 01 -->
-  <div class="section visible" id="s1">
+  <div class="section" id="s1">
     <div class="eyebrow">01 · The starting point</div>
     <h2 class="section-title">The question we're anticipating.</h2>
     <p class="body">170.000 DKK a month in LinkedIn ads. A four-person team. Where's the direct line to revenue? It's a fair question. This isn't a defence — it's an argument that it's the wrong question, and that asking the right one changes everything.</p>
@@ -554,7 +554,7 @@ tbody td:last-child {
   </div>
 
   <!-- 02 -->
-  <div class="section visible" id="s2">
+  <div class="section" id="s2">
     <div class="eyebrow">02 · How the buying journey actually works</div>
     <h2 class="section-title">Buyers decide before they talk to sales.</h2>
     <p class="body">Dreamdata analysed 3.5 million B2B customer journeys in 2026. The pattern is consistent across industries and company sizes:</p>
@@ -737,24 +737,44 @@ tbody td:last-child {
 </div>
 
 <script>
+  // Fade-in on scroll
   const io = new IntersectionObserver(entries => {
     entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
   }, { threshold: 0.06, rootMargin: '0px 0px -24px 0px' });
   document.querySelectorAll('.section, .closing').forEach(el => io.observe(el));
 
+  // Nav active state
   const links = document.querySelectorAll('.nav-link');
   const secs = document.querySelectorAll('.section[id]');
-  const nio = new IntersectionObserver(entries => {
-    entries.forEach(e => {
-      if (e.isIntersecting) {
-        links.forEach(l => l.classList.remove('active'));
-        const a = document.querySelector(`.nav-link[href="#${e.target.id}"]`);
-        if (a) a.classList.add('active');
+
+  function setActive(id) {
+    links.forEach(l => l.classList.remove('active'));
+    const a = document.querySelector(`.nav-link[href="#${id}"]`);
+    if (a) a.classList.add('active');
+  }
+
+  // Click: set active immediately + smooth scroll with nav offset
+  links.forEach(link => {
+    link.addEventListener('click', e => {
+      e.preventDefault();
+      const id = link.getAttribute('href').slice(1);
+      setActive(id);
+      const target = document.getElementById(id);
+      if (target) {
+        const navH = document.querySelector('.nav').offsetHeight;
+        const top = target.getBoundingClientRect().top + window.scrollY - navH - 16;
+        window.scrollTo({ top, behavior: 'smooth' });
       }
     });
-  }, { threshold: 0.35 });
+  });
+
+  // Scroll: keep active state in sync
+  const nio = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) setActive(e.target.id);
+    });
+  }, { threshold: 0.3, rootMargin: '-48px 0px -40% 0px' });
   secs.forEach(s => nio.observe(s));
 </script>
-
-
-</body></html>
+</body>
+</html>
